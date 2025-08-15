@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h4 class="mb-3">Participants</h4>
+<form class="row g-2 mb-3" method="GET" action="{{ url_for('view_participants') }}">
+  <div class="col-auto">
+    <input class="form-control" type="text" name="district" placeholder="Filter by district" value="{{ district_filter }}">
+  </div>
+  <div class="col-auto">
+    <button class="btn btn-outline-primary">Apply</button>
+    <a class="btn btn-link" href="{{ url_for('view_participants') }}">Reset</a>
+  </div>
+</form>
+<div class="table-responsive">
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>District</th><th>Contact</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in participants %}
+      <tr>
+        <td>{{ p[0] }}</td>
+        <td>{{ p[1] }}</td>
+        <td>{{ p[2] }}</td>
+        <td>{{ p[3] }}</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

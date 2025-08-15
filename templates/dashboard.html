@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="d-flex gap-2 mb-3">
+  <a class="btn btn-success" href="{{ url_for('add_participant') }}">Add Participant</a>
+  <a class="btn btn-outline-secondary" href="{{ url_for('view_participants') }}">View Participants</a>
+  <a class="btn btn-outline-primary" href="{{ url_for('mark_attendance') }}">Mark Attendance</a>
+  <a class="btn btn-outline-dark" href="{{ url_for('view_attendance') }}">View Attendance</a>
+</div>
+<div class="row g-3">
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>Participants</h5>
+        <h2>{{ participants_count }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>Events</h5>
+        <h2>{{ events_count }}</h2>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h5>Attendance</h5>
+        <h2>{{ attendance_count }}</h2>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
